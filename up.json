@@ -1,0 +1,19 @@
+{
+  "name": "nestjs-up-boilerplate",
+  "profile": "hitple",
+  "regions": [
+    "ap-northeast-2"
+  ],
+  "proxy": {
+    "command": "yarn start:prod",
+    "timeout": 25,
+    "listen_timeout": 25
+  },
+  "stages": {
+    "development": {
+      "proxy": {
+        "command": "nodemon dist/main"
+      }
+    }
+  }
+}

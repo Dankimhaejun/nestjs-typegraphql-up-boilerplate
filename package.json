@@ -4,6 +4,7 @@
   "description": "NestJS + TypeGraphQL + Apex/Up",
   "author": "Dan.kimhaejun",
   "main": "src/main.ts",
+  "license": "UNLICENSED",
   "homepage":"https://github.com/Dankimhaejun/nestjs-typegraphql-up-boilerplate",
   "repository": {
     "type": "git",

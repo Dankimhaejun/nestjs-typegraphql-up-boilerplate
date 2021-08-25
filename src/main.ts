@@ -1,19 +1,31 @@
-import { NestFactory } from '@nestjs/core';
+import "reflect-metadata";
+import { NestFactory } from "@nestjs/core";
 import {
   NestFastifyApplication,
   FastifyAdapter,
-} from '@nestjs/platform-fastify';
+} from "@nestjs/platform-fastify";
 
-import { AppModule } from './app.module';
+import {AppModule} from "./app.module";
+
+declare const module: any;
+
+const isDevelopment = process.env.NODE_ENV === "development";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
   );
+  const port = process.env.PORT ?? 3000;
+  await app.listen(port);
 
-  await app.listen(process.env.PORT);
-  console.log(`Server listening on http://localhost:3005/graphql`);
+  if (isDevelopment) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+    console.log(`Server listening on http://localhost:3005/graphql`);
+    console.log(`port`, port);
+  }
+  
 }
 
 bootstrap();

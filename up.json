@@ -4,16 +4,78 @@
   "regions": [
     "ap-northeast-2"
   ],
+  "hooks": {
+    "postbuild":"yarn"
+  },
   "proxy": {
-    "command": "yarn start:prod",
+    "command": "node dist/main",
     "timeout": 25,
     "listen_timeout": 25
   },
   "stages": {
     "development": {
       "proxy": {
-        "command": "nodemon dist/main"
+        "command": "node dist/dev-server"
+      }
+    },
+    "staging": {
+      "lambda": {
+        "memory": 512,
+        "warm": false
       }
     }
+  },
+  "lambda": {
+    "runtime": "nodejs14.x",
+    "policy": [
+      {
+        "Effect": "Allow",
+        "Resource": "*",
+        "Action": [
+          "dynamodb:*",
+          "es:ESHttpPost",
+          "es:ESHttpPut",
+          "events:*",
+          "lambda:InvokeFunction",
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:PutObjectAcl",
+          "secretsmanager:GetSecretValue",
+          "ses:*",
+          "sqs:*",
+          "sts:*"
+        ]
+      }
+    ],
+    "memory": 1024,
+    "warm": true,
+    "warm_count": 50,
+    "warm_rate": "5m"
+  },
+  "cors": {
+    "allowed_origins": [
+      "*"
+    ],
+    "allowed_methods": [
+      "HEAD",
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE",
+      "OPTIONS"
+    ],
+    "allowed_headers": [
+      "Origin",
+      "Accept",
+      "Content-Type",
+      "X-Requested-With",
+      "Graphql-Authorization",
+      "Headers",
+      "Cache-Control",
+      "X-Context"
+    ],
+    "allow_credentials": true,
+    "debug": true
   }
 }

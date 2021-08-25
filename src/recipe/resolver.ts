@@ -11,14 +11,12 @@ export default class RecipeResolver {
 
   @Query(() => [Recipe])
   recipes() {
-    console.log('"hellyeah" :>> ', 'hello');
     return this.recipeService.getRecipes();
   }
 
   @Mutation(() => Recipe)
   addRecipe(@Arg('input') recipe: Recipe) {
     this.recipeService.addRecipe(recipe);
-    console.log('"goodbye" :>> ', 'goodbye');
     return recipe;
   }
 }

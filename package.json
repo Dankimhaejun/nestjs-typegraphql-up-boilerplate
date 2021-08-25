@@ -5,7 +5,7 @@
   "author": "Dan.kimhaejun",
   "main": "src/main.ts",
   "license": "UNLICENSED",
-  "homepage":"https://github.com/Dankimhaejun/nestjs-typegraphql-up-boilerplate",
+  "homepage": "https://github.com/Dankimhaejun/nestjs-typegraphql-up-boilerplate",
   "repository": {
     "type": "git",
     "url": "https://github.com/Dankimhaejun/nestjs-typegraphql-up-boilerplate"
@@ -67,7 +67,8 @@
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
     "type-graphql": "^1.1.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "webpack-node-externals": "^3.0.0"
   },
   "jest": {
     "moduleFileExtensions": [

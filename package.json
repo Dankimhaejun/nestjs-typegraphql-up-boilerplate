@@ -1,10 +1,14 @@
 {
-  "name": "nestjs-up-boilerplate",
+  "name": "nestjs-typegraphql-up-boilerplate",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "description": "NestJS + TypeGraphQL + Apex/Up",
+  "author": "Dan.kimhaejun",
+  "main": "src/main.ts",
+  "homepage":"https://github.com/Dankimhaejun/nestjs-typegraphql-up-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dankimhaejun/nestjs-typegraphql-up-boilerplate"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build:dev": "rimraf dist && webpack --config webpack.development.js --watch",
@@ -12,8 +16,6 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "up start --address='localhost:3005'",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",

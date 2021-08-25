@@ -1,7 +1,7 @@
 <p align="center">
     <a href="https://typegraphql.com/" target="blank"><img src="https://typegraphql.com/img/logo.png" width="120" alt="Nest Logo" /></a>
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="300" alt="Nest Logo" /></a>
-      <a href="https://apex.sh/docs/up/" target="blank"><img src="https://apex-software.imgix.net/apex/site/favicons/light/32.png" width="120" alt="Nest Logo" /></a>
+    <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="300" alt="Nest Logo" /></a>
+    <a href="https://apex.sh/docs/up/" target="blank"><img src="https://apex-software.imgix.net/apex/site/favicons/light/32.png" width="120" alt="Nest Logo" /></a>
 </p>
 
 # You can deploy serverless GraphQL API server in 5 minutes
@@ -39,7 +39,7 @@ $ yarn build:dev
 $ yarn start:dev
 ```
 
-### 3. Set profile in up.json
+### 2. Set profile in up.json
 
 - [Apex/up](https://apex.sh/docs/up/credentials/)
 - Before using Up you need to first provide your AWS account credentials so that Up is allowed to create resources on your behalf.
@@ -55,11 +55,28 @@ $ yarn start:dev
 }
 ```
 
+### 3. Running the app in development mode
+
+```bash
+# build and watch mode
+$ yarn build:dev
+
+# development mode
+$ yarn start:dev
+```
+
 ### 4. Deploy in AWS lambda
 
 ```bash
 # deploy in lambda
 up staging
+```
+
+### 5. Remove lambda (rollback)
+
+```bash
+# remove lambda
+up stack delete -f
 ```
 
 ## Test
@@ -98,4 +115,11 @@ curl 'https://9yqw26jx73.execute-api.ap-northeast-2.amazonaws.com/staging/graphq
 
 ```bash
 {"data":{"recipes":[{"title":"hello"}]}}
+```
+
+## Make sure remove your aws lambda
+
+```bash
+# remove lambda
+up stack delete -f
 ```

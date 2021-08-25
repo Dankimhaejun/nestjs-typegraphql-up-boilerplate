@@ -15,7 +15,6 @@ const plugins = [
 @Module({
   imports: [
     TypeGraphQLModule.forRoot({
-      emitSchemaFile: true,
       validate: false,
       dateScalarMode: 'timestamp',
       plugins,

@@ -4,9 +4,6 @@
   "regions": [
     "ap-northeast-2"
   ],
-  "hooks": {
-    "postbuild":"yarn"
-  },
   "proxy": {
     "command": "node dist/main",
     "timeout": 25,

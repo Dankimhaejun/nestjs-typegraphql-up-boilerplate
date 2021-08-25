@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build:dev": "rimraf dist && webpack --config webpack.development.js --watch",
-    "build": "nest build",
+    "build": "webpack --config webpack.production.js",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "up start --address='localhost:3005'",

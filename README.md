@@ -44,13 +44,14 @@ $ yarn start:dev
 - [Apex/up](https://apex.sh/docs/up/credentials/)
 - Before using Up you need to first provide your AWS account credentials so that Up is allowed to create resources on your behalf.
 
-```json
+```js
+// up.json
 {
   "name": "nestjs-typegraphql-up-boilerplate",
   "profile": "put your aws profile", // here
-  .
-  .
-  .
+  //
+  //
+  //
 }
 ```
 

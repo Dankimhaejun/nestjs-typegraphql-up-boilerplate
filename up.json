@@ -1,6 +1,6 @@
 {
   "name": "nestjs-typegraphql-up-boilerplate",
-  "profile": "hitple",
+  "profile": "put your aws profile",
   "regions": [
     "ap-northeast-2"
   ],

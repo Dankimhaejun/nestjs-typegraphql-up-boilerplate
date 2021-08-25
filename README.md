@@ -4,6 +4,8 @@
       <a href="https://apex.sh/docs/up/" target="blank"><img src="https://apex-software.imgix.net/apex/site/favicons/light/32.png" width="120" alt="Nest Logo" /></a>
 </p>
 
+# You can deploy serverless GraphQL API server in 5 minutes
+
 ## Description
 
 **[NestJS](https://nestjs.com/) + [TypeGraphQL](https://typegraphql.com/)  + [Apex Up](https://apex.sh/docs/up/)**
@@ -21,13 +23,13 @@
 curl -sf https://up.apex.sh/install | sh
 ```
 
-### Installation
+### 1. Installation
 
 ```bash
 yarn install
 ```
 
-### Running the app in development mode
+### 2. Running the app in development mode
 
 ```bash
 # build and watch mode
@@ -37,18 +39,34 @@ $ yarn build:dev
 $ yarn start:dev
 ```
 
-### Deploy in AWS lambda
+### 3. Set profile in up.json
+
+- [Apex/up](https://apex.sh/docs/up/credentials/)
+- Before using Up you need to first provide your AWS account credentials so that Up is allowed to create resources on your behalf.
+
+```json
+{
+  "name": "nestjs-typegraphql-up-boilerplate",
+  "profile": "put your aws profile", // here
+  .
+  .
+  .
+}
+```
+
+### 4. Deploy in AWS lambda
 
 ```bash
 # deploy in lambda
 up staging
 ```
 
-### Test
+## Test
 
-#### Mutation request
+### Mutation request
 
 ```bash
+# set deploy url
 curl 'https://9yqw26jx73.execute-api.ap-northeast-2.amazonaws.com/staging/graphql' \
        -H "Content-Type: application/json" \
        -d '{
@@ -56,7 +74,7 @@ curl 'https://9yqw26jx73.execute-api.ap-northeast-2.amazonaws.com/staging/graphq
        }'
 ```
 
-#### Mutation response
+### Mutation response
 
 ```bash
 {"data":{"addRecipe":{"title":"hello"}}}
@@ -64,10 +82,10 @@ curl 'https://9yqw26jx73.execute-api.ap-northeast-2.amazonaws.com/staging/graphq
 
 ---
 
-#### Query request
+### Query request
 
 ```bash
-# use your own url
+# set deploy url
 curl 'https://9yqw26jx73.execute-api.ap-northeast-2.amazonaws.com/staging/graphql' \ 
        -H "Content-Type: application/json" \
        -d '{
@@ -75,7 +93,7 @@ curl 'https://9yqw26jx73.execute-api.ap-northeast-2.amazonaws.com/staging/graphq
        }'
 ```
 
-#### Query response
+### Query response
 
 ```bash
 {"data":{"recipes":[{"title":"hello"}]}}

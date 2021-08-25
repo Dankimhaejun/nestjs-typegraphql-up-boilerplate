@@ -1,14 +1,14 @@
-import { Module } from '@nestjs/common';
-import { TypeGraphQLModule } from 'typegraphql-nestjs';
+import { Module } from "@nestjs/common";
+import { TypeGraphQLModule } from "typegraphql-nestjs";
 import {
   ApolloServerPluginInlineTrace,
   ApolloServerPluginLandingPageGraphQLPlayground,
-} from 'apollo-server-core';
+} from "apollo-server-core";
 
-import RecipeModule from './recipe/module';
+import RecipeModule from "./recipe/module";
 
 const plugins = [
-  ApolloServerPluginLandingPageGraphQLPlayground({ title: 'Hello' }),
+  ApolloServerPluginLandingPageGraphQLPlayground({ title: "Hello" }),
   ApolloServerPluginInlineTrace(),
 ];
 
@@ -16,7 +16,7 @@ const plugins = [
   imports: [
     TypeGraphQLModule.forRoot({
       validate: false,
-      dateScalarMode: 'timestamp',
+      dateScalarMode: "timestamp",
       plugins,
       // debug: true,
       // introspection: true,

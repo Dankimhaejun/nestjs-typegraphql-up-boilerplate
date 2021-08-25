@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { Resolver, Query, Mutation, Arg } from 'type-graphql';
+import { Injectable } from "@nestjs/common";
+import { Resolver, Query, Mutation, Arg } from "type-graphql";
 
-import RecipeService from './service';
-import Recipe from './type';
+import RecipeService from "./service";
+import Recipe from "./type";
 
 @Injectable()
 @Resolver()
@@ -15,7 +15,7 @@ export default class RecipeResolver {
   }
 
   @Mutation(() => Recipe)
-  addRecipe(@Arg('input') recipe: Recipe) {
+  addRecipe(@Arg("input") recipe: Recipe) {
     this.recipeService.addRecipe(recipe);
     return recipe;
   }

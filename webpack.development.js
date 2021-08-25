@@ -1,31 +1,31 @@
-const path = require('path');
-const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
+const path = require("path");
+const webpack = require("webpack");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
-  entry: ['webpack/hot/poll?100', './src/main.ts'],
-  target: 'node',
+  entry: ["webpack/hot/poll?100", "./src/main.ts"],
+  target: "node",
   externals: [
     nodeExternals({
-      allowlist: ['webpack/hot/poll?100'],
+      allowlist: ["webpack/hot/poll?100"],
     }),
   ],
   module: {
     rules: [
       {
         test: /.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
     ],
   },
-  mode: 'development',
+  mode: "development",
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'dev-server.js',
+    path: path.join(__dirname, "dist"),
+    filename: "dev-server.js",
   },
 };

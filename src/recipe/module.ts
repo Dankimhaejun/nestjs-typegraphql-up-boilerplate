@@ -1,7 +1,7 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
 
-import RecipeResolver from './resolver';
-import RecipeService from './service';
+import RecipeResolver from "./resolver";
+import RecipeService from "./service";
 
 @Module({
   providers: [RecipeResolver, RecipeService],

@@ -1,9 +1,20 @@
 {
   "name": "nestjs-typegraphql-up-boilerplate",
-  "profile": "put your aws profile",
+  "profile": "hitple",
   "regions": [
     "ap-northeast-2"
   ],
+  "hooks": {
+    "prebuild": [
+      "rm -rf dist",
+      "rm -rf node_modules",
+      "yarn install --production"
+    ],
+    "postdeploy": [
+      "rm -rf node_modules",
+      "yarn"
+    ]
+  },
   "proxy": {
     "command": "node dist/main",
     "timeout": 25,
@@ -19,6 +30,14 @@
       "lambda": {
         "memory": 512,
         "warm": false
+      }
+    },
+    "production": {
+      "lambda": {
+        "memory": 1024,
+        "warm": true,
+        "warm_count": 50,
+        "warm_rate": "5m"
       }
     }
   },

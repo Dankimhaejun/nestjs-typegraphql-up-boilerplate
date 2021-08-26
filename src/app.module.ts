@@ -8,7 +8,7 @@ import {
 import RecipeModule from "./recipe/module";
 
 const plugins = [
-  ApolloServerPluginLandingPageGraphQLPlayground({ title: "Hello" }),
+  ApolloServerPluginLandingPageGraphQLPlayground(),
   ApolloServerPluginInlineTrace(),
 ];
 
@@ -18,9 +18,6 @@ const plugins = [
       validate: false,
       dateScalarMode: "timestamp",
       plugins,
-      // debug: true,
-      // introspection: true,
-      // context: ({ req }) => ({ currentUser: req.user }),
     }),
     RecipeModule,
   ],

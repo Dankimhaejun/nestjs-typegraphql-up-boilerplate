@@ -8,11 +8,13 @@
     "prebuild": [
       "rm -rf dist",
       "rm -rf node_modules",
-      "yarn install --production"
+      "yarn install --production",
+      "yarn autoclean --force"
     ],
     "postdeploy": [
       "rm -rf node_modules",
-      "yarn"
+      "yarn",
+      "yarn autoclean --force"
     ]
   },
   "proxy": {

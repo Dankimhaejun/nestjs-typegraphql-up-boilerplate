@@ -29,16 +29,6 @@ curl -sf https://up.apex.sh/install | sh
 yarn install
 ```
 
-### 2. Running the app in development mode
-
-```bash
-# build and watch mode
-$ yarn build:dev
-
-# development mode
-$ yarn start:dev
-```
-
 ### 2. Set profile in up.json
 
 - [Apex/up](https://apex.sh/docs/up/credentials/)
